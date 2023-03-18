@@ -1,11 +1,11 @@
 import React from 'react'
 import './App.css'
-import LinkHolder from './components/LinkHolder/LinkHolder'
+import SwagbucksPage from './components/SwagbucksPage'
 
 function App() {
   return (
     <>
-      <LinkHolder />
+      <SwagbucksPage />
     </>
   )
 }

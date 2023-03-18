@@ -1,2 +1,5 @@
 slate, gray, sky are colors available across the whole project
 
+Font: Inter
+
+Header component may have became useless since I changed layout to grid

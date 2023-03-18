@@ -17,6 +17,12 @@
 .wrapper:active {
   background-color: var(--slate5);
 }
+.wrapper:first-of-type {
+  margin-top: 0px;
+}
+.wrapper:last-of-type {
+  margin-bottom: 0px;
+}
 
 .url {
   white-space: nowrap;
@@ -30,11 +36,13 @@
   background-color: var(--slate5);
   color: var(--gray12);
   width: 40px;
-  aspect-ratio: 1;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: var(--inner-radius);
+  /* uses var(--inner-radius) value but does not work with composes */
+  /* border-radius: var(--inner-radius); */
+  border-radius: 16px;
 }
 .wrapper:hover .counter,
 .wrapper:focus .counter{

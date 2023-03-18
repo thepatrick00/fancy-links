@@ -1,6 +1,8 @@
 @import '@radix-ui/colors/slate.css';
 @import '@radix-ui/colors/sky.css';
+@import '@radix-ui/colors/blue.css';
 @import '@radix-ui/colors/gray.css';
+@import '@radix-ui/colors/grass.css';
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -20,7 +22,7 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--sky11);
   text-decoration: inherit;
 }
 a:hover {
@@ -29,10 +31,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {

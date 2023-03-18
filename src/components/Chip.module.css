@@ -1,0 +1,28 @@
+.wrapper {
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  position: relative;
+  width: 150px;
+  color: white;
+  border: 1px solid var(--slate8);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 31%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+.wrapper::before {
+  content: '5sb';
+  position: absolute;
+  /* translate: 40% 7%; */
+  left: 22%;
+  top: 5%;
+  font-size: 3rem;
+}
+
+.title {
+  display: inline;
+}

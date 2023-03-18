@@ -1,0 +1,7 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 0px 30%;
+  border: 1px solid var(--slate5);
+  align-items: center;
+}

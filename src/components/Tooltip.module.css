@@ -1,0 +1,19 @@
+.trigger {
+  position: relative;
+  display: inline-block;
+  color: var(--blue10);
+  font-weight: bold;
+  border: none;
+  background: transparent;
+  padding: 0px 2px;
+}
+.content {
+  padding: 12px 18px;
+  border-radius: 6px;
+  background-color: var(--sky10);
+  color: var(--gray12);
+  font-size: 0.875rem;
+  text-align: center;
+  filter: drop-shadow(0px 4px 8px hsla(208, 81%, 42%, 0.2));
+  z-index: 1;
+}

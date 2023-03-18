@@ -1,0 +1,41 @@
+.wrapper {
+  --border-radius: 16px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  max-width: 568px;
+}
+.h1 {
+  font-size: 2.6rem;
+  margin-bottom: 1.5rem;
+}
+p.info {
+  display: inline;
+}
+
+.linksWrapper {
+  margin: 1.5rem 0;
+}
+
+.clicks {
+  text-align: left;
+  /* matches padding from FancyLink.module.css --padding value  */
+  padding-left: 8px;
+  font-weight: 500;
+}
+.totalWrapper {
+  /* matches padding from FancyLink.module.css --padding value  */
+  padding-left: 8px;
+  font-weight: 500;
+  margin-top: 4px;
+  display: flex;
+  align-items:baseline;
+  gap: 40%;
+}
+
+.totalBox {
+  composes: counter from './FancyLink.module.css';
+  
+  border-radius: var(--border-radius);
+  background-color: var(--slate4);
+  border: 1px solid var(--slate5);
+}
