@@ -12,6 +12,7 @@
     rgba(9, 9, 121, 1) 31%,
     rgba(0, 212, 255, 1) 100%
   );
+  background-image: url(../assets/sbgame.jpg);
 }
 
 .wrapper::before {

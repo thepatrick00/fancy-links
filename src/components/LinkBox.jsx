@@ -5,19 +5,19 @@ import FancyLink from './FancyLink'
 import Tooltip from './Tooltip'
 import ProgressBar from './ProgressBar'
 
-// const LINKS = [
-//   'https://www.swagbucks.com/g/l/p3btd7',
-//   'https://www.swagbucks.com/g/l/6vyye1',
-//   'https://www.swagbucks.com/g/l/xcq6yq',
-//   'https://www.swagbucks.com/g/l/1j26i4',
-// ]
-
 const LINKS = [
-  'https://www.example.com/',
-  'https://www.example.com/',
-  'https://www.example.com/',
-  'https://www.example.com/',
+  'https://www.swagbucks.com/g/l/p3btd7',
+  'https://www.swagbucks.com/g/l/6vyye1',
+  'https://www.swagbucks.com/g/l/xcq6yq',
+  'https://www.swagbucks.com/g/l/1j26i4',
 ]
+
+// const LINKS = [
+//   'https://www.example.com/',
+//   'https://www.example.com/',
+//   'https://www.example.com/',
+//   'https://www.example.com/',
+// ]
 
 const savedTotal = JSON.parse(localStorage.getItem('total'))
 

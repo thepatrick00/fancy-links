@@ -6,9 +6,13 @@ function ProgressBar({ total }) {
   // used to determine 1st win and second win
   let progressMax = 4
   let percentageToSearchWin = (total / progressMax) * 100;
-  if(total > 4) {
-    progressMax = 33;
-    percentageToSearchWin = (total - 4) / progressMax * 100;
+  if (total > 4) {
+    progressMax = 33
+    percentageToSearchWin = ((total - 4) / progressMax) * 100
+  }
+  
+  if (total > progressMax) {
+    percentageToSearchWin = 100
   }
 
   return (
@@ -21,7 +25,7 @@ function ProgressBar({ total }) {
           `${percentageToSearchWin.toFixed(0)}% progress toward search win`}
       </p>
       <Progress.Root
-        value={total}
+        value={total > progressMax ? progressMax : total}
         max={progressMax}
         className={styles.root}
       >

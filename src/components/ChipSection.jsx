@@ -8,8 +8,10 @@ function ChipSection({ className }) {
 
   return (
     <div className={nextClass}>
-      {chipData.map(({ title: t, description: d }, index) => {
-        return <Chip key={index} title={t} description={d} />
+      {chipData.map(({key, ...delegated}) => {
+        return (
+          <Chip key={key} {...delegated}/>
+        )
       })}
     </div>
   )
