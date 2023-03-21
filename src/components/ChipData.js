@@ -10,6 +10,7 @@ const data = [
     img: '../assets/sbgame.jpg',
     payout: '10sb',
     key: '1',
+    color: 'blue',
   },
   {
     title: '1sb offers',
@@ -18,6 +19,7 @@ const data = [
     img: '../assets/sbgame.jpg',
     payout: '1sb',
     key: '2',
+    color: 'sky',
   },
   {
     title: 'Freecash GPT Site',
@@ -25,8 +27,9 @@ const data = [
       'The only Swagbucks competitor when it comes to GPT sites. Give it a try.',
     link: 'https://freecash.com/r/signup_bonus',
     img: '../assets/sbgame.jpg',
-    payout: 'Freecash',
+    payout: 'New GPT',
     key: '3',
+    color: 'indigo',
   },
   {
     title: 'Daily Poll',
@@ -36,6 +39,7 @@ const data = [
     img: '../assets/sbgame.jpg',
     payout: '1sb',
     key: '4',
+    color: 'slate',
   },
 ]
 

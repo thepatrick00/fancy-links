@@ -1,5 +1,4 @@
 import React from 'react'
-import styles from './Chip.module.css'
 import Tooltip from './Tooltip'
 import styled from 'styled-components'
 
@@ -13,7 +12,7 @@ function Chip({ title, description, link, img, payout }) {
   return (
     <a href={link}>
       <Card payout={payout}>{payout}</Card>
-      <p className={styles.title}>{title}</p>
+      <p style={{display: 'inline'}}>{title}</p>
       <Tooltip>{description}</Tooltip>
     </a>
   )
@@ -25,10 +24,19 @@ const Card = styled.div`
   width: calc(150/16 * 1rem);
   display: grid;
   place-content: center;
-  color: white;
+  color: var(--slate11);
   font-size: 2rem;
-  background-color: var(--slate7);
-  border: 1px solid var(--slate8);
+  background-color: var(--indigo3);
+  border: 1px solid var(--indigo7);
+
+  &:hover {
+    border-color: var(--indigo8);
+    background-color: var(--indigo4);
+  }
+
+  &:active {
+    background-color: var(--indigo5);
+  }
 
   &:before {
     /* content: '${props => props.payout}';
