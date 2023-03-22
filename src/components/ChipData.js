@@ -10,7 +10,7 @@ const data = [
     img: '../assets/sbgame.jpg',
     payout: '10sb',
     key: '1',
-    color: 'blue',
+    color: 'crimson',
   },
   {
     title: '1sb offers',
@@ -19,7 +19,7 @@ const data = [
     img: '../assets/sbgame.jpg',
     payout: '1sb',
     key: '2',
-    color: 'sky',
+    color: 'amber',
   },
   {
     title: 'Freecash GPT Site',
@@ -29,7 +29,7 @@ const data = [
     img: '../assets/sbgame.jpg',
     payout: 'New GPT',
     key: '3',
-    color: 'indigo',
+    color: 'grass',
   },
   {
     title: 'Daily Poll',
@@ -39,7 +39,7 @@ const data = [
     img: '../assets/sbgame.jpg',
     payout: '1sb',
     key: '4',
-    color: 'slate',
+    color: 'cyan',
   },
 ]
 

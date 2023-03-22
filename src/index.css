@@ -1,10 +1,13 @@
 @import '@radix-ui/colors/slate.css';
 @import '@radix-ui/colors/sky.css';
 @import '@radix-ui/colors/gray.css';
+
 @import '@radix-ui/colors/blue.css';
 @import '@radix-ui/colors/indigo.css';
 @import '@radix-ui/colors/cyan.css';
 @import '@radix-ui/colors/grass.css';
+@import '@radix-ui/colors/crimson.css';
+@import '@radix-ui/colors/amber.css';
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
