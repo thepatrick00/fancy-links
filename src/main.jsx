@@ -5,10 +5,21 @@ import './index.css'
 
 import TooltipProvider from './components/TooltipProvider'
 
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <div>Hello world!</div>,
+  },
+])
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <TooltipProvider>
-      <App />
-    </TooltipProvider>
+    <RouterProvider router={router}>
+      <TooltipProvider>
+        <App />
+      </TooltipProvider>
+    </RouterProvider>
   </React.StrictMode>
 )

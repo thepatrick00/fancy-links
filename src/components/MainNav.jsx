@@ -3,10 +3,9 @@ import styles from './MainNav.module.css'
 import styled from 'styled-components'
 
 function MainNav({className}) {
-  const nextClass = `${styles.wrapper} ${className}`;
 
   return (
-    <nav className={nextClass}>
+    <nav>
       <ul className={styles.nav__ul}>
         <ListItem>
           <a href="Home">Home</a>

@@ -5,8 +5,8 @@ const data = [
   {
     title: 'Daily Game',
     description:
-      'Earn 10sb daily playing Pyramid Solitaire (remove pairs that add up to 13)',
-    link: 'https://www.swagbucks.com/games/play/317/pyramid-solitaire?tid=113',
+      'Score at least 3000 points in Alu\'s Revenge to guarentee the reward',
+    link: 'https://www.swagbucks.com/games/play/319/alu-s-revenge-2?tid=113',
     img: '../assets/sbgame.jpg',
     payout: '10sb',
     key: '1',

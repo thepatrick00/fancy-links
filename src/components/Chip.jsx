@@ -10,7 +10,7 @@ function Chip({ title, description, link, img, payout, color }) {
   console.log(payout)
 
   return (
-    <a href={link}>
+    <a href={link} target='_blank' >
       <Card payout={payout} color={color}>{payout}</Card>
       <Title color={color}>{title}</Title>
       <Tooltip>{description}</Tooltip>
@@ -28,8 +28,8 @@ const Card = styled.div`
   place-content: center;
   color: var(--${(p) => p.color}11);
   font-size: 2rem;
-  background-color: var(--${(p) => p.color}3);
-  border: 1px solid var(--${(p) => p.color}7);
+  background-color: var(--${({color}) => color}3);
+  border: 1px solid var(--${({color}) => color}7);
 
   &:hover {
     border-color: var(--${(p) => p.color}8);

@@ -1,10 +1,8 @@
 import React from 'react'
-import styles from './Footer.module.css'
 
-function Footer({ className }) {
-  const nextClass = `${styles.wrapper} ${className}`
+function Footer() {
   return (
-    <footer className={nextClass}>
+    <footer>
       <div>
         <p>
           Made with {`<3`} by{' '}

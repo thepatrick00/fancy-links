@@ -1,6 +1,8 @@
 import React from 'react'
 import * as Progress from '@radix-ui/react-progress'
 import styles from './ProgressBar.module.css'
+// eslint-disable-next-line no-unused-vars
+import styled from 'styled-components'
 
 function ProgressBar({ total }) {
   // used to determine 1st win and second win
@@ -17,7 +19,7 @@ function ProgressBar({ total }) {
 
   return (
     <div className={styles.wrapper}>
-      <p>
+      <p css={`text-align: center;`}>
         {percentageToSearchWin === 100
           ? '100% | Check for a search win'
           : ''}{' '}

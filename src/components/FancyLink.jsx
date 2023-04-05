@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './FancyLink.module.css'
+import { Counter } from './Counter'
 
 function FancyLink({ link, updateCounter, count }) {
   // const savedCounter = JSON.parse(
@@ -21,7 +22,7 @@ function FancyLink({ link, updateCounter, count }) {
       target="_blank"
       rel="noreferrer"
     >
-      <div className={styles.counter}>{count}</div>
+      <Counter>{count}</Counter>
       <p className={styles.url}>{link}</p>
     </a>
   )
