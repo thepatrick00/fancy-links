@@ -3,24 +3,18 @@ import styles from './LinkBox.module.css'
 
 import FancyLink from './FancyLink'
 import Tooltip from './Tooltip'
-import SwagbucksProgressBar from './SwagbucksProgressBar'
+import MicrosoftProgressBar from './MicrosoftProgressBar'
 // import { refresh-cw } from 'react-feather'
 import { VscDebugRestart } from 'react-icons/vsc'
 import styled from 'styled-components'
 import { Counter } from './Counter'
 
 let LINKS = [
-  'https://www.swagbucks.com/g/l/p3btd7',
-  'https://www.swagbucks.com/g/l/6vyye1',
-  'https://www.swagbucks.com/g/l/xcq6yq',
-  'https://www.swagbucks.com/g/l/1j26i4',
-]
-
-LINKS = [
-  'https://www.example.com/',
-  'https://www.example.com/',
-  'https://www.example.com/',
-  'https://www.example.com/',
+  'https://www.bing.com/search?q=patricklimitless',
+  'https://www.bing.com/search?q=cannonsband',
+  'https://www.bing.com/search?q=swagbucks',
+  'https://www.bing.com/search?q=majorleaguesoccer',
+  // 'https://www.bing.com/search?q=example+domain',
 ]
 
 const initialCounters = LINKS.map((link) => {
@@ -31,7 +25,7 @@ const initialCounters = LINKS.map((link) => {
   }
 })
 
-function LinkBox({ className }) {
+function MicrosoftLinkBox({ className }) {
   const [total, setTotal] = React.useState(0)
   const [counters, setCounters] = React.useState(initialCounters)
 
@@ -54,14 +48,14 @@ function LinkBox({ className }) {
     setTotal(0)
     setCounters(initialCounters)
   }
-  
+
   // LocalStorage does not properly work with Strictmode on
-  // due to the mulitple re-renders. Works properly without 
+  // due to the mulitple re-renders. Works properly without
   // strict-mode
   React.useEffect(() => {
-    const savedTotal = JSON.parse(localStorage.getItem('total'))
+    const savedTotal = JSON.parse(localStorage.getItem('mtotal'))
     const savedCounters = JSON.parse(
-      localStorage.getItem('counters')
+      localStorage.getItem('mcounters')
     )
     if (savedTotal !== null) {
       setTotal(savedTotal)
@@ -72,64 +66,84 @@ function LinkBox({ className }) {
   }, [])
 
   React.useEffect(() => {
-    localStorage.setItem('total', JSON.stringify(total))
-    localStorage.setItem('counters', JSON.stringify(counters))
+    localStorage.setItem('mtotal', JSON.stringify(total))
+    localStorage.setItem('mcounters', JSON.stringify(counters))
   }, [total, counters])
 
-  let info =
-    total < 4 ? (
-      <>
-        <p className={styles.info}>
-          <b>1st search win</b> Search each link once to get a search
-          win
-        </p>
+  let info = (
+    <>
+      <p>
+        Level 2 Account: Do 30 searches on your computer, and 20
+        searches on your mobile phone to get all the points.
         <Tooltip>
-          It must be your first daily search since midnight
+          Requires 500 points to get to level 2. Level 1 accounts are
+          limited to 10 searches or 50 points a day.
         </Tooltip>
-      </>
-    ) : (
-      <>
-        <p className={styles.info}>
-          <b>2nd Search Win:</b> Search 4 links 8x + 1 to get your
-          second search win. This is a total of 33 searches.
-        </p>
+      </p>
+      <br />
+      <p>
+        If you earn the max of 270 points daily here is how much it is
+        in dollars.
         <Tooltip>
-          Counter does not reset after 4, so keep going until you reach 37 (4 + 33).
+          This is assuming you redeem the $5 Amazon Giftcard at 6500
+          points and not counting any other bonuses.
         </Tooltip>
-      </>
-    )
+      </p>
+      <ol>
+        <li>$0.21 daily</li>
+        <li>$1.45 weekly</li>
+        <li>$6.23 monthly</li>
+        <li>$75.80 yearly</li>
+      </ol>
+    </>
+  )  
+
+ 
+  // I can make my own list of random search queries if this doesn't work 
+  // that will be quicker even since I won't need to fetch data
+  const [word, setWord] = React.useState('thesaurus')
+
+  React.useEffect(() => {
+    // this is so the word state actually has a random word on the 
+    // very first click
+    setWord(searchRandomWord())
+  }, [])
+
+  const searchRandomWord = async () => {
+    try {
+      const res = await fetch(
+        'https://random-word-api.herokuapp.com/word'
+      )
+      const data = await res.json()
+      setTotal(total + 1)
+
+      setWord(data[0])
+    } catch (err) {
+      console.error('there was an error: ', err)
+      return `error on click ${total}`
+    }
+  }
 
   const nextClass = `${styles.wrapper} ${className}`
 
   return (
     <main className={nextClass}>
       <h1 className={styles.h1}>
-        Swagbucks <br /> Easy Search
+        Microsoft Rewards
+        <br /> Easy Search
       </h1>
-      <p>
-        New? Sign up to{' '}
-        <a
-          href="https://www.swagbucks.com/profile/thepatrickzzz"
-          className={styles.signup}
-        >
-          Swagbucks
-        </a>
-        <Tooltip> $3 sign up bonus + more for new users </Tooltip>
-      </p>
       {info}
 
       <div className={styles.linksWrapper}>
         <div className={styles.clicks}>Clicks</div>
-        {counters.map(({ link, count, uniqueId }) => {
-          return (
-            <FancyLink
-              key={uniqueId}
-              link={link}
-              onClick={() => updateCounter(uniqueId)}
-              count={count}
-            />
-          )
-        })}
+        <FancyLink
+          link={`https://www.bing.com/search?q=${word}`}
+          link={`https://example.com`}
+          onClick={searchRandomWord}
+          count={total}
+        >
+          Search random word
+        </FancyLink>
       </div>
 
       <InfoWrapper>
@@ -150,7 +164,7 @@ function LinkBox({ className }) {
           />
         </TotalGrid>
 
-        <SwagbucksProgressBar total={total} />
+        <MicrosoftProgressBar total={total} />
       </InfoWrapper>
     </main>
   )
@@ -183,4 +197,4 @@ const ResetIcon = styled(VscDebugRestart)`
   }
 `
 
-export default LinkBox
+export default MicrosoftLinkBox

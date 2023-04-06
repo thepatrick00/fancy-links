@@ -7,3 +7,6 @@
   padding: 0;
   justify-content: space-around;
 }
+a.active {
+  background-color: red;
+}

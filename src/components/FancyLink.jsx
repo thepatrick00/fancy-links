@@ -2,28 +2,18 @@ import React from 'react'
 import styles from './FancyLink.module.css'
 import { Counter } from './Counter'
 
-function FancyLink({ link, updateCounter, count }) {
-  // const savedCounter = JSON.parse(
-  //   localStorage.getItem(`counter ${index}`)
-  // )
-  
-  // React.useEffect(() => {
-  //   localStorage.setItem(
-  //     `counter ${index}`,
-  //     JSON.stringify(counter)
-  //   )
-  // }, [counter])
+function FancyLink({ link, onClick, count = 0, children }) {
 
   return (
     <a
       className={styles.wrapper}
-      onClick={updateCounter}
+      onClick={onClick}
       href={link}
       target="_blank"
       rel="noreferrer"
     >
       <Counter>{count}</Counter>
-      <p className={styles.url}>{link}</p>
+      <p className={styles.url}>{children || link}</p>
     </a>
   )
 }

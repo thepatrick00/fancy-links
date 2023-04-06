@@ -1,10 +1,13 @@
 import React from 'react'
 import styles from './ChipSection.module.css'
 import Chip from './Chip'
-import chipData from './ChipData'
 
-function ChipSection({ className }) {
+function ChipSection({ className, chipData = [] }) {
   const nextClass = `${styles.wrapper} ${className}`
+
+  if(chipData.length === 0) {
+    return null;
+  }
 
   return (
     <div className={nextClass}>

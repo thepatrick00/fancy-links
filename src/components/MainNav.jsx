@@ -1,23 +1,43 @@
-import React from 'react';
+import React from 'react'
 import styles from './MainNav.module.css'
 import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
 
-function MainNav({className}) {
+function MainNav({ className }) {
+  // isActive is state inside of React Router NavLink
+  const activeStyle = ({ isActive }) => {
+    return {
+      fontWeight: isActive ? 'bold' : '',
+      color: isActive ? 'var(--sky12)' : ''
+    }
+  }
 
   return (
-    <nav>
+    <nav
+      css={`
+        align-self: center;
+      `}
+    >
       <ul className={styles.nav__ul}>
-        <ListItem>
-          <a href="Home">Home</a>
+        <ListItem className={''}>
+          <NavLink to="/" style={activeStyle}>
+            Home
+          </NavLink>
         </ListItem>
         <ListItem>
-          <a href="Contact">Contact</a>
+          <NavLink to="/swagbucks" style={activeStyle}>
+            Swagbucks
+          </NavLink>
         </ListItem>
         <ListItem>
-          <a href="Swagbucks">Swagbucks</a>
+          <NavLink to="/microsoft" style={activeStyle}>
+            Microsoft
+          </NavLink>
         </ListItem>
         <ListItem>
-          <a href="Microsoft">Microsoft</a>
+          <NavLink to="/contact" style={activeStyle}>
+            Contact
+          </NavLink>
         </ListItem>
       </ul>
     </nav>
@@ -43,5 +63,4 @@ const ListItem = styled.li`
   }
 `
 
-
-export default MainNav;
+export default MainNav

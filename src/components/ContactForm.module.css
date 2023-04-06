@@ -1,0 +1,10 @@
+input::placeholder, textarea::placeholder {
+  /* padding-left: 10px; */
+  /* text-indent: 10px; */
+  
+}
+
+.wrapper {
+  padding-top: 2rem;
+  margin: 0 auto;
+}

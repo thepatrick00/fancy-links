@@ -1,5 +1,5 @@
 .trigger {
-  position: relative;
+  position: absolute;
   display: inline-block;
   color: var(--blue10);
   font-weight: bold;
@@ -10,7 +10,8 @@
 .content {
   padding: 12px 18px;
   border-radius: 6px;
-  background-color: var(--sky10);
+  background-color: var(--slate4);
+  border: 2px dashed var(--slate8);
   color: var(--gray12);
   font-size: 0.875rem;
   text-align: center;

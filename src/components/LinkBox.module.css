@@ -23,3 +23,11 @@ p.info {
   padding-left: 8px;
   font-weight: 500;
 }
+
+.signup {
+  color: var(--sky11);
+  text-decoration: 2px solid underline;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  display: inline-block;
+}

@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
   return (
-    <footer>
+    <footer style={{textAlign: 'center', margin: '2rem 0px 5rem'}}>
       <div>
         <p>
           Made with {`<3`} by{' '}
