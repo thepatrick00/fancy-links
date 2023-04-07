@@ -11,7 +11,6 @@ import { Counter } from './Counter'
 import useMidnightTimeout from '../hooks/useMidnightTimeout'
 import useDailyLocalStorageReset from '../hooks/useDailyLocalStorageReset'
 
-
 // let LINKS = [
 //   'https://www.bing.com/search?q=patricklimitless',
 //   'https://www.bing.com/search?q=cannonsband',
@@ -72,7 +71,6 @@ function MicrosoftContent({ className }) {
     // localStorage.setItem('mcounters', JSON.stringify(counters))
   }, [total])
 
-
   let info = (
     <>
       <p>
@@ -100,8 +98,6 @@ function MicrosoftContent({ className }) {
       </ol>
     </>
   )
-
-
 
   async function searchRandomWord(isIncrement = true) {
     try {
@@ -169,6 +165,10 @@ const InfoWrapper = styled.div`
   font-weight: 500;
   display: grid;
   grid-template-columns: 200px 1fr;
+
+  @media (max-width: 460px) {
+    grid-template-columns: 1fr 1.5fr;
+  }
 `
 
 const TotalGrid = styled.div`

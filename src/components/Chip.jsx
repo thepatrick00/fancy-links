@@ -11,12 +11,13 @@ function Chip({
   cardText,
   color,
   style,
+  className
 }) {
   // if link start with a forward slash(/) use polymorphism
   // change Anchor to Link
   if (link[0] === '/') {
     return (
-      <Link to={link} style={style}>
+      <Link to={link} style={style} className={className}>
         <Card color={color}>{cardText}</Card>
         <Title color={color}>{title}</Title>
         {description && (

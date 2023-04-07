@@ -165,6 +165,11 @@ const InfoWrapper = styled.div`
   font-weight: 500;
   display: grid;
   grid-template-columns: 200px 1fr;
+  
+  @media (max-width: 460px) {
+    grid-template-columns: 1fr 1.5fr;
+
+  }
 `
 
 const TotalGrid = styled.div`

@@ -1,5 +1,6 @@
 import React from 'react'
 import './Home.css'
+import styles from './Home.module.css'
 import Page from './components/Page'
 import { Link } from 'react-router-dom'
 import Chip from './components/Chip'
@@ -10,7 +11,7 @@ function Home() {
     <>
       <Page>
         <div>
-          <h1>Welcome to MoneyDecent!</h1>
+          <h1>Welcome to Money Decent!</h1>
           <h2>About</h2>
           <p>
             This is a site where you can earn money more easily with
@@ -28,9 +29,8 @@ function Home() {
           <h2>Features</h2>
           <ul>
             <li>
-              When you search each click is tracked using a
-              counter. You don't have to manually count your
-              clicks.
+              When you search each click is tracked using a counter.
+              You don't have to manually count your clicks.
             </li>
             <li>
               A progress bar is also included for a more visual way to
@@ -42,7 +42,8 @@ function Home() {
               there. You don't have to do all your clicks in one go.
             </li>
             <li>
-              Saved clicks automatically reset to zero every night after 12am.
+              Saved clicks automatically reset to zero every night
+              after 12am.
             </li>
           </ul>
 
@@ -51,20 +52,14 @@ function Home() {
             If you have any feedback I will gladly listen!
             <Link to="/contact"> Message me here</Link>
           </p>
-          <div
-            style={{
-              display: 'flex',
-              textAlign: 'center',
-              marginTop: '2rem'
-            }}
-          >
+          <div className={styles.chipWrapper}>
             <Chip
               title="Search Swagbucks"
               // description="try"
               link="/swagbucks"
               color="sky"
               cardText="SB"
-              style={{paddingRight: '2rem'}}
+              className={styles.chip}
             />
             <Chip
               title="Search Microsoft Rewards"

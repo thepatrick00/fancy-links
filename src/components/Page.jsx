@@ -6,25 +6,25 @@ import MainNav from './MainNav'
 import ChipSection from './ChipSection'
 import Footer from './Footer'
 import ShareButton from './ShareButton'
+import { BREAKPOINTS } from './data'
 
 function Page({ slot, chipData, children }) {
-
-  const shareButtonStyle = {
-    position: 'fixed',
-    top: '20%',
-    right: '-5px'
-  }
+  // let shareButtonStyle = {
+  //   position: 'fixed',
+  //   top: '20%',
+  //   right: '-3px',
+  // }
 
   return (
     <>
       <Grid chipData={chipData}>
-        <Logo />
+        <StyledLogo />
         <MainNav />
         <Row row={2} column={2}>
           {slot || children}
         </Row>
         <Row row={2} column={3}>
-          <ShareButton style={shareButtonStyle}/>
+          <ShareButton />
         </Row>
         <ChipSection
           chipData={chipData}
@@ -44,15 +44,25 @@ function Page({ slot, chipData, children }) {
 export const Grid = styled.div`
   display: grid;
   grid-template-rows: ${({ chipData }) =>
-      chipData?.length
-        ? '64px 2fr 1fr 100px'
-        : '64px 2fr 100px'};
+    chipData?.length ? '64px 2fr 1fr 100px' : '64px 2fr 100px'};
   grid-template-columns: 1fr 568px 1fr;
   grid-template-areas:
     'logo nav _'
     '_ main _'
     '_ chips _'
     '_ footer _';
+
+  @media (max-width: 1024px) {
+    display: block;
+    max-width: 575px;
+    padding: 1rem;
+    margin: auto;
+  }
+`
+const StyledLogo = styled(Logo)`
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `
 
 const Row = styled.div`

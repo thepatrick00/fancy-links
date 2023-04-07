@@ -69,10 +69,19 @@ const Button = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: fixed;
+  top: 20%;
+  right: -3px;
 
   &:hover {
     background-color: var(--grass4);
     border-color: var(--grass7);
+  }
+
+  @media (max-width: 640px) {
+    /* background-color: transparent; */
+    top: revert;
+    bottom: 5%;
   }
 `
 

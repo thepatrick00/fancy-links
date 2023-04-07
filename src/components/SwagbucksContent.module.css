@@ -6,9 +6,10 @@
   width: 100%;
 }
 .h1 {
-  font-size: 2.6rem;
+  /* font-size: 2.6rem; */
   margin-bottom: 1.5rem;
 }
+
 p.info {
   display: inline;
 }

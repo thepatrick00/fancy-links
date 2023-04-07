@@ -1,0 +1,22 @@
+.chipWrapper {
+  display: flex;
+  text-align: center;
+  margin-top: 2rem;;
+}
+
+.chip {
+  padding-right: 2rem;
+}
+
+@media (max-width: 360px) {
+  .chipWrapper {
+    display: block;
+  }
+  .chip {
+    padding: 0;
+    padding-bottom: 1rem;
+  }
+  .chip:last-of-type {
+    padding-bottom: none;
+  }
+}

@@ -61,6 +61,16 @@ const ListItem = styled.li`
   &:active {
     background-color: var(--sky3);
   }
+
+  @media (max-width: 460px) {
+    &:first-of-type {
+      display: none;
+    }
+  }
+
+  @media (max-width: 370px) {
+    
+  }
 `
 
 export default MainNav

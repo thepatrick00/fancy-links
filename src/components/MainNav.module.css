@@ -10,3 +10,9 @@
 a.active {
   background-color: red;
 }
+
+@media (max-width: 370px) {
+  .nav__ul {
+    display: block;
+  }
+}
