@@ -111,8 +111,9 @@ function SwagbucksContent({ className }) {
       <p>
         New? Sign up to{' '}
         <a
-          href="https://www.swagbucks.com/profile/thepatrickzzz"
+          href="https://www.swagbucks.com/p/register?rb=53853255"
           className={styles.signup}
+          target="_blank"
         >
           Swagbucks
         </a>
