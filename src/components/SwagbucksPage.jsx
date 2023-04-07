@@ -1,14 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import LinkBox from './LinkBox'
+import SwagbucksContent from './SwagbucksContent'
 import Page from './Page'
 
 import {swagbucksChipData} from './ChipData'
 
-function SwagbucksPage({ slot }) {
+function SwagbucksPage() {
   return (
-    <Page slot={<LinkBox />} chipData={swagbucksChipData}/>
+    <Page chipData={swagbucksChipData}>
+      <SwagbucksContent />
+    </Page>
   )
 }
 

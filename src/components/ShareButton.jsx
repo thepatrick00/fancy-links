@@ -3,6 +3,8 @@ import { BsShareFill } from 'react-icons/bs'
 import styled from 'styled-components'
 
 function ShareButton({ style }) {
+  const [message, setMessage] = React.useState(null)
+
   let shareData = {
     title: 'Faster Search Wins on Swagbucks & Microsoft Rewards',
     text: 'Check out MoneyDecent.com to maximize Swagbucks and Microsoft Rewards.',
@@ -11,8 +13,25 @@ function ShareButton({ style }) {
 
   const handleClick = async () => {
     try {
-      if (navigator.canShare(shareData)) {
+      if (navigator.share) {
         await navigator.share(shareData)
+      } else {
+        // Fallback since only 67% browsers support Web Share API
+        // Get the current URL
+        const currentUrl = window.location.href
+
+        // Copy the URL to the clipboard
+        navigator.clipboard
+          .writeText(currentUrl)
+          .then(() => {
+            setMessage('URL copied to clipboard')
+            setTimeout(() => {
+              setMessage(null)
+            }, 3000)
+          })
+          .catch((err) => {
+            console.error('Failed to copy URL: ', err)
+          })
       }
     } catch (err) {
       console.error('there was an error sharing: ', err)
@@ -25,6 +44,20 @@ function ShareButton({ style }) {
         Share
         <ShareIcon />
       </Button>
+      {message && (
+        <div
+          style={{
+            position: 'fixed',
+            top: '10px',
+            right: '10px',
+            padding: '10px',
+            backgroundColor: 'var(--grass10)',
+            color: 'white',
+          }}
+        >
+          {message}
+        </div>
+      )}
     </>
   )
 }

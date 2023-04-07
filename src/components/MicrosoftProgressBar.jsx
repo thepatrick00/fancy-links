@@ -3,7 +3,9 @@ import styles from './ProgressBar.module.css'
 import ProgressBar from './ProgressBar'
 
 function MicrosoftProgressBar({ total }) {
-  const isMobile = navigator.userAgentData.mobile
+  const isMobile =
+    navigator.userAgentData?.mobile ||
+    window.matchMedia('(pointer:coarse)').matches
   let progressMax = isMobile ? 20 : 30
   let percentageToSearchWin = (total / progressMax) * 100
 

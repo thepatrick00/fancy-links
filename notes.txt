@@ -3,3 +3,29 @@ slate, gray, sky are colors available across the whole project
 Font: Inter
 
 Header component may have became useless since I changed layout to grid
+
+Interesting Programmer Problems I solved
+* Share button originally only used the Web Share API. I realized that
+the only 67% of browsers support this API. To solve this problem I
+decided to use the Clipboard API to copy the url and display a message
+that the url has been copied to these users.
+
+* Making components reuseable in React ahs been interesting. I think
+a lot about in terms on producers and consumers. How can I make this 
+code easier for myself to consume.
+
+* Another aspect of reusability I though about was seperating basic components from complex compnents. I tried my best to keep basic components dealing with styles only.
+
+Then I build used those basic components to build more specific components that had logic tied to them thus being less reuseable.
+
+Then I also had components that just focused on the layout like my Page.jsx component. I think this is a good way to create useful components.
+
+* LocalStoarge in React was a bit confusing because StrictMode was actually causing bugs instead of catching them this time. Since it rerenders twice localStoarge was bugging out.
+
+* I also to lift simple state up from individual <FancyLink> components and instead create a single more complext state (array of objects) that stored all the data about each <FancyLink>. This was necessary because I needed to count the total clicks data of each <FancyLink> in the parent component.
+
+* I also used an experimented with many new technologies. This was my first project using Vite build tool. I learned it uses Babel or SWC for transpilling code and it uses Rollup for Bundeling. It uses ESModules on the server making it only run necessary files which allows us to see the updates right away.
+
+* I configured ESLint for this project. I used CSS Modules, Styled Components, Prettier, Radix-UI components, Radix-UI colors. For routing I used React Router.
+
+* Another interesting challenge I had was resetting the counters at Midnight. My solution was to make a custom hook that stored the the day in localStoarge. If a user comes back to the site and the new Date().getDate() is different from the day that was stored in localStoarge, the localStoarge will be cleared.

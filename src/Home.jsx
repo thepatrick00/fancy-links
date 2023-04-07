@@ -42,8 +42,7 @@ function Home() {
               there. You don't have to do all your clicks in one go.
             </li>
             <li>
-              Saved clicks automatically reset to zero every night at
-              12am.
+              Saved clicks automatically reset to zero every night after 12am.
             </li>
           </ul>
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './LinkBox.module.css'
+import styles from './SwagbucksContent.module.css'
 
 import FancyLink from './FancyLink'
 import Tooltip from './Tooltip'
@@ -8,6 +8,8 @@ import SwagbucksProgressBar from './SwagbucksProgressBar'
 import { VscDebugRestart } from 'react-icons/vsc'
 import styled from 'styled-components'
 import { Counter } from './Counter'
+import useMidnightTimeout from '../hooks/useMidnightTimeout'
+import useDailyLocalStorageReset from '../hooks/useDailyLocalStorageReset'
 
 let LINKS = [
   'https://www.swagbucks.com/g/l/p3btd7',
@@ -31,38 +33,36 @@ const initialCounters = LINKS.map((link) => {
   }
 })
 
-function LinkBox({ className }) {
+function SwagbucksContent({ className }) {
   const [total, setTotal] = React.useState(0)
   const [counters, setCounters] = React.useState(initialCounters)
+  
+  useDailyLocalStorageReset('day')
 
   const updateCounter = (uniqueId) => {
-    const nextCounters = counters.map((link) => {
-      // if the uniqueId that is passed in
-      // matches the uniqueId we currently are looking for
-      // in this .map(), then update this object.
+    let nextCounters = counters.map((link) => {
       if (link.uniqueId === uniqueId) {
         return { ...link, count: link.count + 1 }
       } else {
         return link
       }
     })
+
     setCounters(nextCounters)
     setTotal(total + 1)
   }
 
-  const handleReset = () => {
+  function handleReset() {
     setTotal(0)
     setCounters(initialCounters)
   }
-  
+
   // LocalStorage does not properly work with Strictmode on
-  // due to the mulitple re-renders. Works properly without 
-  // strict-mode
+  // due to the mulitple re-renders, so I turned it off
   React.useEffect(() => {
     const savedTotal = JSON.parse(localStorage.getItem('total'))
-    const savedCounters = JSON.parse(
-      localStorage.getItem('counters')
-    )
+    const savedCounters = JSON.parse(localStorage.getItem('counters'))
+
     if (savedTotal !== null) {
       setTotal(savedTotal)
     }
@@ -75,6 +75,7 @@ function LinkBox({ className }) {
     localStorage.setItem('total', JSON.stringify(total))
     localStorage.setItem('counters', JSON.stringify(counters))
   }, [total, counters])
+
 
   let info =
     total < 4 ? (
@@ -94,7 +95,8 @@ function LinkBox({ className }) {
           second search win. This is a total of 33 searches.
         </p>
         <Tooltip>
-          Counter does not reset after 4, so keep going until you reach 37 (4 + 33).
+          Counter does not reset after 4, so keep going until you
+          reach 37 (4 + 33).
         </Tooltip>
       </>
     )
@@ -183,4 +185,4 @@ const ResetIcon = styled(VscDebugRestart)`
   }
 `
 
-export default LinkBox
+export default SwagbucksContent

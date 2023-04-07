@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './LinkBox.module.css'
+import styles from './SwagbucksContent.module.css'
 
 import FancyLink from './FancyLink'
 import Tooltip from './Tooltip'
@@ -8,6 +8,9 @@ import MicrosoftProgressBar from './MicrosoftProgressBar'
 import { VscDebugRestart } from 'react-icons/vsc'
 import styled from 'styled-components'
 import { Counter } from './Counter'
+import useMidnightTimeout from '../hooks/useMidnightTimeout'
+import useDailyLocalStorageReset from '../hooks/useDailyLocalStorageReset'
+
 
 let LINKS = [
   'https://www.bing.com/search?q=patricklimitless',
@@ -25,50 +28,50 @@ const initialCounters = LINKS.map((link) => {
   }
 })
 
-function MicrosoftLinkBox({ className }) {
+function MicrosoftContent({ className }) {
   const [total, setTotal] = React.useState(0)
-  const [counters, setCounters] = React.useState(initialCounters)
+  // ctrl+f "setCounters", I am only using 1 link so I don't need this right now, but keeping it b/c I may need it. I use total for the single count I track.
+  // const [counters, setCounters] = React.useState(initialCounters)
 
-  const updateCounter = (uniqueId) => {
-    const nextCounters = counters.map((link) => {
-      // if the uniqueId that is passed in
-      // matches the uniqueId we currently are looking for
-      // in this .map(), then update this object.
-      if (link.uniqueId === uniqueId) {
-        return { ...link, count: link.count + 1 }
-      } else {
-        return link
-      }
-    })
-    setCounters(nextCounters)
-    setTotal(total + 1)
-  }
+  useDailyLocalStorageReset('mday')
 
   const handleReset = () => {
     setTotal(0)
-    setCounters(initialCounters)
+    // setCounters(initialCounters)
   }
+
+  // I can make my own list of random search queries if this doesn't work
+  // that will be quicker even since I won't need to fetch data
+  const [word, setWord] = React.useState('thesaurus')
+
+  React.useEffect(() => {
+    setWord(searchRandomWord(false))
+    // this fn increments total but I don't actually need to increment
+    // for presetting the first word
+    setTotal(0)
+  }, [])
 
   // LocalStorage does not properly work with Strictmode on
   // due to the mulitple re-renders. Works properly without
   // strict-mode
   React.useEffect(() => {
     const savedTotal = JSON.parse(localStorage.getItem('mtotal'))
-    const savedCounters = JSON.parse(
-      localStorage.getItem('mcounters')
-    )
-    if (savedTotal !== null) {
+    // const savedCounters = JSON.parse(
+    //   localStorage.getItem('mcounters')
+    // )
+    if (savedTotal) {
       setTotal(savedTotal)
     }
-    if (savedCounters !== null) {
-      setCounters(savedCounters)
-    }
+    // if (savedCounters) {
+    //   setCounters(savedCounters)
+    // }
   }, [])
 
   React.useEffect(() => {
     localStorage.setItem('mtotal', JSON.stringify(total))
-    localStorage.setItem('mcounters', JSON.stringify(counters))
-  }, [total, counters])
+    // localStorage.setItem('mcounters', JSON.stringify(counters))
+  }, [total])
+
 
   let info = (
     <>
@@ -96,26 +99,17 @@ function MicrosoftLinkBox({ className }) {
         <li>$75.80 yearly</li>
       </ol>
     </>
-  )  
+  )
 
- 
-  // I can make my own list of random search queries if this doesn't work 
-  // that will be quicker even since I won't need to fetch data
-  const [word, setWord] = React.useState('thesaurus')
 
-  React.useEffect(() => {
-    // this is so the word state actually has a random word on the 
-    // very first click
-    setWord(searchRandomWord())
-  }, [])
 
-  const searchRandomWord = async () => {
+  async function searchRandomWord(isIncrement = true) {
     try {
       const res = await fetch(
         'https://random-word-api.herokuapp.com/word'
       )
       const data = await res.json()
-      setTotal(total + 1)
+      isIncrement && setTotal(total + 1)
 
       setWord(data[0])
     } catch (err) {
@@ -197,4 +191,4 @@ const ResetIcon = styled(VscDebugRestart)`
   }
 `
 
-export default MicrosoftLinkBox
+export default MicrosoftContent
