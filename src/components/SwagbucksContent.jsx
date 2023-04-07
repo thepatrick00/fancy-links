@@ -18,12 +18,12 @@ let LINKS = [
   'https://www.swagbucks.com/g/l/1j26i4',
 ]
 
-LINKS = [
-  'https://www.example.com/',
-  'https://www.example.com/',
-  'https://www.example.com/',
-  'https://www.example.com/',
-]
+// LINKS = [
+//   'https://www.example.com/',
+//   'https://www.example.com/',
+//   'https://www.example.com/',
+//   'https://www.example.com/',
+// ]
 
 const initialCounters = LINKS.map((link) => {
   return {

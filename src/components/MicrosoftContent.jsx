@@ -12,21 +12,21 @@ import useMidnightTimeout from '../hooks/useMidnightTimeout'
 import useDailyLocalStorageReset from '../hooks/useDailyLocalStorageReset'
 
 
-let LINKS = [
-  'https://www.bing.com/search?q=patricklimitless',
-  'https://www.bing.com/search?q=cannonsband',
-  'https://www.bing.com/search?q=swagbucks',
-  'https://www.bing.com/search?q=majorleaguesoccer',
-  // 'https://www.bing.com/search?q=example+domain',
-]
+// let LINKS = [
+//   'https://www.bing.com/search?q=patricklimitless',
+//   'https://www.bing.com/search?q=cannonsband',
+//   'https://www.bing.com/search?q=swagbucks',
+//   'https://www.bing.com/search?q=majorleaguesoccer',
+//   // 'https://www.bing.com/search?q=example+domain',
+// ]
 
-const initialCounters = LINKS.map((link) => {
-  return {
-    link: link,
-    count: 0,
-    uniqueId: Math.random(),
-  }
-})
+// const initialCounters = LINKS.map((link) => {
+//   return {
+//     link: link,
+//     count: 0,
+//     uniqueId: Math.random(),
+//   }
+// })
 
 function MicrosoftContent({ className }) {
   const [total, setTotal] = React.useState(0)
@@ -132,7 +132,6 @@ function MicrosoftContent({ className }) {
         <div className={styles.clicks}>Clicks</div>
         <FancyLink
           link={`https://www.bing.com/search?q=${word}`}
-          link={`https://example.com`}
           onClick={searchRandomWord}
           count={total}
         >
