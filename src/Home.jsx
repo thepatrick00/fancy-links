@@ -29,7 +29,7 @@ function Home() {
           <ul>
             <li>
               When you search each click is tracked using a
-              counter.time You don't have to manually count your
+              counter. You don't have to manually count your
               clicks.
             </li>
             <li>
