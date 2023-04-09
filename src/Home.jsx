@@ -4,9 +4,13 @@ import styles from './Home.module.css'
 import Page from './components/Page'
 import { Link } from 'react-router-dom'
 import Chip from './components/Chip'
+import ScrollToTop from './hooks/ScrollToTop'
 
 // this is like the home page in a sense
 function Home() {
+
+  ScrollToTop();
+  
   return (
     <>
       <Page>

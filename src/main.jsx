@@ -35,7 +35,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>
     <TooltipProvider>
       <RouterProvider router={router}>
-        <ScrollToTop/>
         <Home />
       </RouterProvider>
     </TooltipProvider>
