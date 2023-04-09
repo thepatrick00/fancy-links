@@ -10,6 +10,8 @@ import SwagbucksPage from './components/SwagbucksPage'
 import ContactPage from './components/ContactPage'
 import MicrosoftPage from './components/MicrosoftPage'
 
+import ScrollToTop from './hooks/ScrollToTop'
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -33,6 +35,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>
     <TooltipProvider>
       <RouterProvider router={router}>
+        <ScrollToTop/>
         <Home />
       </RouterProvider>
     </TooltipProvider>
