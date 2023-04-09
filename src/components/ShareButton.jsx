@@ -64,8 +64,9 @@ function ShareButton({ style }) {
 
 const Button = styled.button`
   text-align: center;
-  background-color: var(--grass3);
-  border-color: var(--grass6);
+  background-color: var(--sky3);
+  border-color: var(--sky6);
+  color: var(--slate12);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,14 +75,16 @@ const Button = styled.button`
   right: -3px;
 
   &:hover {
-    background-color: var(--grass4);
-    border-color: var(--grass7);
+    background-color: var(--sky4);
+    border-color: var(--sky7);
   }
 
   @media (max-width: 640px) {
     /* background-color: transparent; */
     top: revert;
     bottom: 5%;
+    font-size: .8rem;
+    padding: .2em .5em;
   }
 `
 
@@ -92,6 +95,13 @@ const ShareIcon = styled(BsShareFill)`
   color: var(--slate12);
   font-size: 2rem;
   text-align: center;
+
+  @media (max-width: 640px) {
+    /* background-color: transparent; */
+    top: revert;
+    bottom: 5%;
+    font-size: 1.5rem;
+  }
 `
 
 export default ShareButton
