@@ -1,8 +1,9 @@
 import React from 'react'
+import styles from './Footer.module.css'
 
 function Footer() {
   return (
-    <footer style={{textAlign: 'center', margin: '2rem 0px 5rem'}}>
+    <footer className={styles.footer}>
       <div>
         <p>
           Made with {`<3`} by{' '}

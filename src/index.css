@@ -9,6 +9,10 @@
 @import '@radix-ui/colors/crimson.css';
 @import '@radix-ui/colors/amber.css';
 
+#root {
+  height: 100%;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -71,14 +75,14 @@ button:focus-visible {
 }
 
 /* @media (prefers-color-scheme: light) { */
-  :root {
-    color: #213547;
-    background-color: var(--slate1);
-  }
-  a:hover {
-    color: var(--sky12);
-  }
-  /* button {
+:root {
+  color: #213547;
+  background-color: var(--slate1);
+}
+a:hover {
+  color: var(--sky12);
+}
+/* button {
     background-color: #f9f9f9;
   } */
 /* } */

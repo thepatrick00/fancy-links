@@ -1,0 +1,8 @@
+.footer {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+/* if there is space left add height
+
+otherwise just leave footer at bottom as is*/

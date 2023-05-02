@@ -33,7 +33,8 @@ function Page({ slot, chipData, children }) {
             grid-column: 2;
           `}
         />
-        <Row row={chipData?.length ? 4 : 3} column={2}>
+
+        <Row row={chipData?.length ? 4 : 3} column={2} style={{}}>
           <Footer />
         </Row>
       </Grid>
@@ -43,8 +44,9 @@ function Page({ slot, chipData, children }) {
 
 export const Grid = styled.div`
   display: grid;
+  height: 100%;
   grid-template-rows: ${({ chipData }) =>
-    chipData?.length ? '64px 2fr 1fr 100px' : '64px 2fr 100px'};
+    chipData?.length ? '64px 2fr 1fr auto' : '64px 2fr auto'};
   grid-template-columns: 1fr 568px 1fr;
   grid-template-areas:
     'logo nav _'
